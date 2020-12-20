@@ -120,7 +120,7 @@ namespace digitalDiary
             this.Controls.Add(this.loginButton);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Home Diary";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

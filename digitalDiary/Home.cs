@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,39 @@ namespace digitalDiary
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-
+            //"DELETE FROM Products WHERE ProductId=" + id;
+            //SqlDataReader reader = dataAccess.GetData(sql);
+            //reader.Read();
+            //Category category = new Category();
+            //category.CategoryId = (int)reader["CategoryId"];
+            //category.CategoryName = reader["CategoryName"].ToString();
+            //return category;
+            //"SELECT * FROM Categories WHERE CategoryName='" + categoryName + "'"
+            //"UPDATE Products SET ProductName='" + product.ProductName + "',Price=" + product.Price + ",Quantity=" + product.Quantity + ",CategoryId=" + product.CategoryId + " WHERE ProductId=" + product.ProductId;
+            if(userNameTextBox.Text!=string.Empty && passwordTextBox.Text!=string.Empty)
+            {
+                string sql = "SELECT * FROM Users WHERE UserName='" + userNameTextBox.Text + "'AND Password='" + passwordTextBox.Text + "'";
+                SqlDataReader sqlDataReader;
+                try
+                {
+                    DataAccess dataAccess = new DataAccess();
+                    sqlDataReader = dataAccess.GetData(sql);
+                    sqlDataReader.Read();
+                    User user = new User(sqlDataReader["Name"].ToString(), sqlDataReader["UserName"].ToString(), sqlDataReader["Email"].ToString(), sqlDataReader["Password"].ToString(), sqlDataReader["DOB"].ToString(), sqlDataReader["Gender"].ToString(), sqlDataReader["BloodGroup"].ToString());
+                    DashBoard dashBoard = new DashBoard(user, this);
+                    dashBoard.Show();
+                    this.Hide();
+                }
+                catch (Exception ex)
+                {
+                    string msg = ex.Message;
+                    MessageBox.Show(msg);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Fields Cannot be Empty!");
+            }
         }
 
         private void signUpButton_Click(object sender, EventArgs e)

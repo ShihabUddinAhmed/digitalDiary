@@ -89,6 +89,7 @@ namespace digitalDiary
                         {
                             MessageBox.Show("Unsuccessful operation...");
                         }
+                        dataaccess.CloseConnection();
                     }
                     else
                     {
