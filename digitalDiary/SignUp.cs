@@ -76,6 +76,19 @@ namespace digitalDiary
                             sql = "INSERT INTO Users(Name,UserName,Email,DOB,Password,Gender,BloodGroup) VALUES('" + nameTextBox.Text + "','" + userNameTextBox.Text + "','" + emailTextBox.Text + "','" + dOBDateTimePicker.Text + "','" + passwordTextBox.Text + "','" + otherRadioButton.Text + "','" + bloodGroupComboBox.Text + "')";
 
                         }
+                        DataAccess dataaccess = new DataAccess();
+                        int result = dataaccess.ExecuteQuery(sql);
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Registered Successfully...!");
+                            nameTextBox.Text = userNameTextBox.Text = emailTextBox.Text = passwordTextBox.Text = confirmPasswordTextBox.Text = bloodGroupComboBox.Text = string.Empty;
+                            maleRadioButton.Checked = femaleRadioButton.Checked = otherRadioButton.Checked = false;
+                            agreementCheckBox.Checked = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Unsuccessful operation...");
+                        }
                     }
                     else
                     {
@@ -91,17 +104,6 @@ namespace digitalDiary
             {
                 MessageBox.Show("Please fill up the form and check the agreement!");
             }
-            DataAccess dataaccess = new DataAccess();
-            int result = dataaccess.ExecuteQuery(sql);
-            if(result>0)
-            {
-                MessageBox.Show("Registered Successfully...!");
-            }
-            else
-            {
-                MessageBox.Show("Unsuccessful operation...");
-            }
-
         }
     }
 }
