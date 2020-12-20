@@ -69,6 +69,7 @@ namespace digitalDiary
             this.signUpLebel.Size = new System.Drawing.Size(300, 24);
             this.signUpLebel.TabIndex = 2;
             this.signUpLebel.Text = "Don\'t have Account? Create new...";
+            this.signUpLebel.Click += new System.EventHandler(this.signUpLebel_Click);
             // 
             // passwordLebel
             // 
@@ -118,6 +119,7 @@ namespace digitalDiary
             this.Controls.Add(this.signUpButton);
             this.Controls.Add(this.loginButton);
             this.Name = "Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
             this.ResumeLayout(false);

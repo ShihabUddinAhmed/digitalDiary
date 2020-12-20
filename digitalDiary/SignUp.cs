@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -45,6 +46,62 @@ namespace digitalDiary
 
             this.back.Show();
             this.Hide();
+        }
+
+        private void signUpButton_Click(object sender, EventArgs e)
+        {
+            string sql = "";
+            if (nameTextBox.Text != "" && userNameTextBox.Text != "" && passwordTextBox.Text != "" && confirmPasswordTextBox.Text != "" &&
+               emailTextBox.Text != "" && (maleRadioButton.Checked || femaleRadioButton.Checked ||
+               otherRadioButton.Checked) && bloodGroupComboBox.Text != "" && agreementCheckBox.Checked)
+            {
+                if (passwordTextBox.Text == confirmPasswordTextBox.Text)
+                {
+                    string email = emailTextBox.Text;
+                    string word = ".com";
+                    if (email.Contains(word))
+                    {
+                        if (maleRadioButton.Checked)
+                        {
+                            sql = "INSERT INTO Users(Name,UserName,Email,DOB,Password,Gender,BloodGroup) VALUES('" + nameTextBox.Text + "','" + userNameTextBox.Text + "','" + emailTextBox.Text + "','" + dOBDateTimePicker.Text + "','" + passwordTextBox.Text + "','" + maleRadioButton.Text + "','" + bloodGroupComboBox.Text + "')";
+                            
+                        }
+                        else if (femaleRadioButton.Checked)
+                        {
+                            sql = "INSERT INTO Users(Name,UserName,Email,DOB,Password,Gender,BloodGroup) VALUES('" + nameTextBox.Text + "','" + userNameTextBox.Text + "','" + emailTextBox.Text + "','" + dOBDateTimePicker.Text + "','" + passwordTextBox.Text + "','" + femaleRadioButton.Text + "','" + bloodGroupComboBox.Text + "')";
+
+                        }
+                        else
+                        {
+                            sql = "INSERT INTO Users(Name,UserName,Email,DOB,Password,Gender,BloodGroup) VALUES('" + nameTextBox.Text + "','" + userNameTextBox.Text + "','" + emailTextBox.Text + "','" + dOBDateTimePicker.Text + "','" + passwordTextBox.Text + "','" + otherRadioButton.Text + "','" + bloodGroupComboBox.Text + "')";
+
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Email!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Enter Password Again!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please fill up the form and check the agreement!");
+            }
+            DataAccess dataaccess = new DataAccess();
+            int result = dataaccess.ExecuteQuery(sql);
+            if(result>0)
+            {
+                MessageBox.Show("Registered Successfully...!");
+            }
+            else
+            {
+                MessageBox.Show("Unsuccessful operation...");
+            }
+
         }
     }
 }

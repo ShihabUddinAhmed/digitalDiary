@@ -33,5 +33,10 @@ namespace digitalDiary
         {
             Application.Exit();
         }
+
+        private void signUpLebel_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

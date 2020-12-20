@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace digitalDiary
 {
     partial class SignUp
@@ -29,32 +31,35 @@ namespace digitalDiary
         /// </summary>
         private void InitializeComponent()
         {
-            this.userNameTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLebel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.passwordLebel = new System.Windows.Forms.Label();
             this.userNameLebel = new System.Windows.Forms.Label();
             this.confirmPasswordLebel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dateOFBirthabel = new System.Windows.Forms.Label();
+            this.genderLabel = new System.Windows.Forms.Label();
+            this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.userNameTextBox = new System.Windows.Forms.TextBox();
+            this.dOBDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.maleRadioButton = new System.Windows.Forms.RadioButton();
+            this.femaleRadioButton = new System.Windows.Forms.RadioButton();
+            this.otherRadioButton = new System.Windows.Forms.RadioButton();
+            this.bloodGroupLebel = new System.Windows.Forms.Label();
+            this.bloodGroupComboBox = new System.Windows.Forms.ComboBox();
             this.signUpButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.agreementCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // userNameTextBox
+            // nameTextBox
             // 
-            this.userNameTextBox.Location = new System.Drawing.Point(484, 83);
-            this.userNameTextBox.Name = "userNameTextBox";
-            this.userNameTextBox.Size = new System.Drawing.Size(425, 22);
-            this.userNameTextBox.TabIndex = 10;
+            this.nameTextBox.Location = new System.Drawing.Point(484, 83);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(425, 22);
+            this.nameTextBox.TabIndex = 10;
             // 
             // nameLebel
             // 
@@ -68,7 +73,7 @@ namespace digitalDiary
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(484, 169);
+            this.passwordTextBox.Location = new System.Drawing.Point(484, 208);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '⚫';
             this.passwordTextBox.Size = new System.Drawing.Size(425, 22);
@@ -78,7 +83,7 @@ namespace digitalDiary
             // 
             this.passwordLebel.AutoSize = true;
             this.passwordLebel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLebel.Location = new System.Drawing.Point(130, 167);
+            this.passwordLebel.Location = new System.Drawing.Point(130, 206);
             this.passwordLebel.Name = "passwordLebel";
             this.passwordLebel.Size = new System.Drawing.Size(132, 24);
             this.passwordLebel.TabIndex = 7;
@@ -98,102 +103,102 @@ namespace digitalDiary
             // 
             this.confirmPasswordLebel.AutoSize = true;
             this.confirmPasswordLebel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmPasswordLebel.Location = new System.Drawing.Point(130, 216);
+            this.confirmPasswordLebel.Location = new System.Drawing.Point(130, 255);
             this.confirmPasswordLebel.Name = "confirmPasswordLebel";
             this.confirmPasswordLebel.Size = new System.Drawing.Size(202, 24);
             this.confirmPasswordLebel.TabIndex = 11;
             this.confirmPasswordLebel.Text = "Confirm Password      : ";
             // 
-            // label3
+            // dateOFBirthabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(130, 265);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 24);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Date of Birth:";
+            this.dateOFBirthabel.AutoSize = true;
+            this.dateOFBirthabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateOFBirthabel.Location = new System.Drawing.Point(130, 304);
+            this.dateOFBirthabel.Name = "dateOFBirthabel";
+            this.dateOFBirthabel.Size = new System.Drawing.Size(115, 24);
+            this.dateOFBirthabel.TabIndex = 14;
+            this.dateOFBirthabel.Text = "Date of Birth:";
             // 
-            // label4
+            // genderLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(130, 317);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 24);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Gender:";
+            this.genderLabel.AutoSize = true;
+            this.genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genderLabel.Location = new System.Drawing.Point(130, 356);
+            this.genderLabel.Name = "genderLabel";
+            this.genderLabel.Size = new System.Drawing.Size(79, 24);
+            this.genderLabel.TabIndex = 13;
+            this.genderLabel.Text = "Gender:";
             // 
-            // textBox1
+            // confirmPasswordTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(484, 218);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '⚫';
-            this.textBox1.Size = new System.Drawing.Size(425, 22);
-            this.textBox1.TabIndex = 15;
+            this.confirmPasswordTextBox.Location = new System.Drawing.Point(484, 257);
+            this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
+            this.confirmPasswordTextBox.PasswordChar = '⚫';
+            this.confirmPasswordTextBox.Size = new System.Drawing.Size(425, 22);
+            this.confirmPasswordTextBox.TabIndex = 15;
             // 
-            // textBox2
+            // userNameTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(484, 125);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '⚫';
-            this.textBox2.Size = new System.Drawing.Size(425, 22);
-            this.textBox2.TabIndex = 16;
+            this.userNameTextBox.Location = new System.Drawing.Point(484, 125);
+            this.userNameTextBox.Name = "userNameTextBox";
+            this.userNameTextBox.Size = new System.Drawing.Size(425, 22);
+            this.userNameTextBox.TabIndex = 16;
             // 
-            // dateTimePicker1
+            // dOBDateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(484, 267);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(425, 22);
-            this.dateTimePicker1.TabIndex = 19;
+            this.dOBDateTimePicker.Location = new System.Drawing.Point(484, 306);
+            this.dOBDateTimePicker.Name = "dOBDateTimePicker";
+            this.dOBDateTimePicker.Size = new System.Drawing.Size(425, 22);
+            this.dOBDateTimePicker.TabIndex = 19;
+            this.dOBDateTimePicker.MaxDate = DateTime.Today.AddDays(-1);
             // 
-            // radioButton1
+            // maleRadioButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(484, 320);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(110, 21);
-            this.radioButton1.TabIndex = 20;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.maleRadioButton.AutoSize = true;
+            this.maleRadioButton.Location = new System.Drawing.Point(484, 359);
+            this.maleRadioButton.Name = "maleRadioButton";
+            this.maleRadioButton.Size = new System.Drawing.Size(59, 21);
+            this.maleRadioButton.TabIndex = 20;
+            this.maleRadioButton.TabStop = true;
+            this.maleRadioButton.Text = "Male";
+            this.maleRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // femaleRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(644, 320);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(110, 21);
-            this.radioButton2.TabIndex = 21;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.femaleRadioButton.AutoSize = true;
+            this.femaleRadioButton.Location = new System.Drawing.Point(572, 359);
+            this.femaleRadioButton.Name = "femaleRadioButton";
+            this.femaleRadioButton.Size = new System.Drawing.Size(75, 21);
+            this.femaleRadioButton.TabIndex = 21;
+            this.femaleRadioButton.TabStop = true;
+            this.femaleRadioButton.Text = "Female";
+            this.femaleRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // otherRadioButton
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(799, 320);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(110, 21);
-            this.radioButton3.TabIndex = 22;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.otherRadioButton.AutoSize = true;
+            this.otherRadioButton.Location = new System.Drawing.Point(682, 359);
+            this.otherRadioButton.Name = "otherRadioButton";
+            this.otherRadioButton.Size = new System.Drawing.Size(72, 21);
+            this.otherRadioButton.TabIndex = 22;
+            this.otherRadioButton.TabStop = true;
+            this.otherRadioButton.Text = "Others";
+            this.otherRadioButton.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // bloodGroupLebel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(130, 362);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 24);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Blood Group:";
+            this.bloodGroupLebel.AutoSize = true;
+            this.bloodGroupLebel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bloodGroupLebel.Location = new System.Drawing.Point(130, 401);
+            this.bloodGroupLebel.Name = "bloodGroupLebel";
+            this.bloodGroupLebel.Size = new System.Drawing.Size(122, 24);
+            this.bloodGroupLebel.TabIndex = 23;
+            this.bloodGroupLebel.Text = "Blood Group:";
             // 
-            // comboBox1
+            // bloodGroupComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.bloodGroupComboBox.FormattingEnabled = true;
+            this.bloodGroupComboBox.Items.AddRange(new object[] {
             "A+",
             "A-",
             "B+",
@@ -202,10 +207,10 @@ namespace digitalDiary
             "O-",
             "AB+",
             "AB-"});
-            this.comboBox1.Location = new System.Drawing.Point(484, 364);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(425, 24);
-            this.comboBox1.TabIndex = 24;
+            this.bloodGroupComboBox.Location = new System.Drawing.Point(484, 403);
+            this.bloodGroupComboBox.Name = "bloodGroupComboBox";
+            this.bloodGroupComboBox.Size = new System.Drawing.Size(425, 24);
+            this.bloodGroupComboBox.TabIndex = 24;
             // 
             // signUpButton
             // 
@@ -216,6 +221,7 @@ namespace digitalDiary
             this.signUpButton.TabIndex = 25;
             this.signUpButton.Text = "Sign Up";
             this.signUpButton.UseVisualStyleBackColor = true;
+            this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
             // 
             // backButton
             // 
@@ -228,30 +234,63 @@ namespace digitalDiary
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // emailLabel
+            // 
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailLabel.Location = new System.Drawing.Point(130, 162);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(98, 24);
+            this.emailLabel.TabIndex = 27;
+            this.emailLabel.Text = "E-mail     : ";
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Location = new System.Drawing.Point(484, 164);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(425, 22);
+            this.emailTextBox.TabIndex = 28;
+            // 
+            // agreementCheckBox
+            // 
+            this.agreementCheckBox.AutoSize = true;
+            this.agreementCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agreementCheckBox.ForeColor = System.Drawing.Color.Red;
+            this.agreementCheckBox.Location = new System.Drawing.Point(90, 446);
+            this.agreementCheckBox.Name = "agreementCheckBox";
+            this.agreementCheckBox.Size = new System.Drawing.Size(453, 22);
+            this.agreementCheckBox.TabIndex = 29;
+            this.agreementCheckBox.Text = "*I agree to the License Terms & Services as well as Privacy Policy";
+            this.agreementCheckBox.UseVisualStyleBackColor = true;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 553);
+            this.Controls.Add(this.agreementCheckBox);
+            this.Controls.Add(this.emailTextBox);
+            this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.signUpButton);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.bloodGroupComboBox);
+            this.Controls.Add(this.bloodGroupLebel);
+            this.Controls.Add(this.otherRadioButton);
+            this.Controls.Add(this.femaleRadioButton);
+            this.Controls.Add(this.maleRadioButton);
+            this.Controls.Add(this.dOBDateTimePicker);
+            this.Controls.Add(this.userNameTextBox);
+            this.Controls.Add(this.confirmPasswordTextBox);
+            this.Controls.Add(this.dateOFBirthabel);
+            this.Controls.Add(this.genderLabel);
             this.Controls.Add(this.userNameLebel);
             this.Controls.Add(this.confirmPasswordLebel);
-            this.Controls.Add(this.userNameTextBox);
+            this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.nameLebel);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.passwordLebel);
             this.Name = "SignUp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SignUp_FormClosing);
             this.ResumeLayout(false);
@@ -261,23 +300,26 @@ namespace digitalDiary
 
         #endregion
 
-        private System.Windows.Forms.TextBox userNameTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label nameLebel;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label passwordLebel;
         private System.Windows.Forms.Label userNameLebel;
         private System.Windows.Forms.Label confirmPasswordLebel;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label dateOFBirthabel;
+        private System.Windows.Forms.Label genderLabel;
+        private System.Windows.Forms.TextBox confirmPasswordTextBox;
+        private System.Windows.Forms.TextBox userNameTextBox;
+        private System.Windows.Forms.DateTimePicker dOBDateTimePicker;
+        private System.Windows.Forms.RadioButton maleRadioButton;
+        private System.Windows.Forms.RadioButton femaleRadioButton;
+        private System.Windows.Forms.RadioButton otherRadioButton;
+        private System.Windows.Forms.Label bloodGroupLebel;
+        private System.Windows.Forms.ComboBox bloodGroupComboBox;
         private System.Windows.Forms.Button signUpButton;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Label emailLabel;
+        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.CheckBox agreementCheckBox;
     }
 }
