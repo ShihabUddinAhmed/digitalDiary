@@ -40,24 +40,28 @@ namespace digitalDiary
             // 
             // loginButton
             // 
+            this.loginButton.BackColor = System.Drawing.SystemColors.Highlight;
             this.loginButton.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.ForeColor = System.Drawing.Color.White;
             this.loginButton.Location = new System.Drawing.Point(221, 417);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(520, 60);
             this.loginButton.TabIndex = 0;
             this.loginButton.Text = "LOG IN";
-            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // signUpButton
             // 
+            this.signUpButton.BackColor = System.Drawing.SystemColors.Highlight;
             this.signUpButton.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signUpButton.ForeColor = System.Drawing.Color.White;
             this.signUpButton.Location = new System.Drawing.Point(554, 500);
             this.signUpButton.Name = "signUpButton";
             this.signUpButton.Size = new System.Drawing.Size(140, 32);
             this.signUpButton.TabIndex = 1;
             this.signUpButton.Text = "Sign Up";
-            this.signUpButton.UseVisualStyleBackColor = true;
+            this.signUpButton.UseVisualStyleBackColor = false;
             this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
             // 
             // signUpLebel

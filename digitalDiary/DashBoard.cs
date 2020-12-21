@@ -27,5 +27,19 @@ namespace digitalDiary
         {
             Application.Exit();
         }
+
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            back.Show();
+        }
+
+        private void profileButton_Click(object sender, EventArgs e)
+        {
+            Profile profile = new Profile(this.user, this);
+            profile.Show();
+            this.Hide();
+
+        }
     }
 }

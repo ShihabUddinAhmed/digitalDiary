@@ -31,12 +31,16 @@ namespace digitalDiary
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.welcomeLabel = new System.Windows.Forms.Label();
+            this.logOutButton = new System.Windows.Forms.Button();
+            this.profileButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.profileButton);
+            this.panel1.Controls.Add(this.logOutButton);
             this.panel1.Controls.Add(this.welcomeLabel);
             this.panel1.Location = new System.Drawing.Point(-13, 3);
             this.panel1.Name = "panel1";
@@ -52,6 +56,28 @@ namespace digitalDiary
             this.welcomeLabel.Name = "welcomeLabel";
             this.welcomeLabel.Size = new System.Drawing.Size(0, 29);
             this.welcomeLabel.TabIndex = 0;
+            // 
+            // logOutButton
+            // 
+            this.logOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logOutButton.Location = new System.Drawing.Point(845, 31);
+            this.logOutButton.Name = "logOutButton";
+            this.logOutButton.Size = new System.Drawing.Size(117, 34);
+            this.logOutButton.TabIndex = 1;
+            this.logOutButton.Text = "Log Out";
+            this.logOutButton.UseVisualStyleBackColor = true;
+            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
+            // 
+            // profileButton
+            // 
+            this.profileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileButton.Location = new System.Drawing.Point(705, 31);
+            this.profileButton.Name = "profileButton";
+            this.profileButton.Size = new System.Drawing.Size(117, 34);
+            this.profileButton.TabIndex = 2;
+            this.profileButton.Text = "Profile";
+            this.profileButton.UseVisualStyleBackColor = true;
+            this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
             // 
             // DashBoard
             // 
@@ -72,5 +98,7 @@ namespace digitalDiary
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label welcomeLabel;
+        private System.Windows.Forms.Button logOutButton;
+        private System.Windows.Forms.Button profileButton;
     }
 }

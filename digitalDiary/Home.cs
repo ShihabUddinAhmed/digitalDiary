@@ -38,7 +38,8 @@ namespace digitalDiary
                     DataAccess dataAccess = new DataAccess();
                     sqlDataReader = dataAccess.GetData(sql);
                     sqlDataReader.Read();
-                    User user = new User(sqlDataReader["Name"].ToString(), sqlDataReader["UserName"].ToString(), sqlDataReader["Email"].ToString(), sqlDataReader["Password"].ToString(), sqlDataReader["DOB"].ToString(), sqlDataReader["Gender"].ToString(), sqlDataReader["BloodGroup"].ToString());
+                    int id = (int)sqlDataReader["id"];
+                    User user = new User(id, sqlDataReader["Name"].ToString(), sqlDataReader["UserName"].ToString(), sqlDataReader["Email"].ToString(), sqlDataReader["Password"].ToString(), sqlDataReader["DOB"].ToString(), sqlDataReader["Gender"].ToString(), sqlDataReader["BloodGroup"].ToString());
                     DashBoard dashBoard = new DashBoard(user, this);
                     dashBoard.Show();
                     this.Hide();
@@ -46,7 +47,7 @@ namespace digitalDiary
                 catch (Exception ex)
                 {
                     string msg = ex.Message;
-                    MessageBox.Show(msg);
+                    MessageBox.Show("Invalid UserName or Password!\nPlease Try Again...");
                 }
             }
             else
