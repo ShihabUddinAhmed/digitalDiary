@@ -15,6 +15,7 @@ namespace digitalDiary
     {
         User user;
         Form back;
+        string ev;
         public DashBoard(User user, Form back)
         {
             InitializeComponent();
@@ -63,7 +64,7 @@ namespace digitalDiary
             List<string> eventsH = new List<string>();
             List<string> eventsM = new List<string>();
             List<string> eventsL = new List<string>();
-            eventsH.Add("Event Names");
+            
             while (sqlDataReaderH.Read())
             {
                 eventsH.Add(sqlDataReaderH["EventName"].ToString());
@@ -76,12 +77,121 @@ namespace digitalDiary
             {
                 eventsL.Add(sqlDataReaderL["EventName"].ToString());
             }
-            highDataGridView.DataSource = eventsH.ToString();
-            moderateDataGridView.DataSource = eventsM.ToString();
-            lessDataGridView.DataSource = eventsL.ToString();
+            DataTable dataTableH = new DataTable();
+            dataTableH.Columns.Add("EventName High Priority", typeof(string));
+            foreach(string str in eventsH)
+            {
+                DataRow rowH = dataTableH.NewRow();
+                rowH["EventName High Priority"] = str;
+                dataTableH.Rows.Add(rowH);
+            }
+            DataTable dataTableM = new DataTable();
+            dataTableM.Columns.Add("EventName Moderate Priority", typeof(string));
+            foreach (string str in eventsM)
+            {
+                DataRow rowM = dataTableM.NewRow();
+                rowM["EventName Moderate Priority"] = str;
+                dataTableM.Rows.Add(rowM);
+            }
+            DataTable dataTableL = new DataTable();
+            dataTableL.Columns.Add("EventName Less Priority", typeof(string));
+            foreach (string str in eventsL)
+            {
+                DataRow rowL = dataTableL.NewRow();
+                rowL["EventName Less Priority"] = str;
+                dataTableL.Rows.Add(rowL);
+            }
+            highDataGridView.DataSource = dataTableH;
+            moderateDataGridView.DataSource = dataTableM;
+            lessDataGridView.DataSource = dataTableL;
             dataAccessH.CloseConnection();
             dataAccessM.CloseConnection();
             dataAccessL.CloseConnection();
+        }
+
+        private void highDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string eventName = (string)highDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                updateTextBox.Text = eventName;
+                ev = eventName;
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void moderateDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string eventName = (string)moderateDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                updateTextBox.Text = eventName;
+                ev = eventName;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void lessDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string eventName = (string)lessDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                updateTextBox.Text = eventName;
+                ev = eventName;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void updateEventButton_Click(object sender, EventArgs e)
+        {
+            string sss="";
+            try
+            {
+                string sql1 = "SELECT * FROM Events WHERE EventName='" + updateTextBox.Text + "'";sss = sql1;
+                DataAccess dataAccess1 = new DataAccess();
+                SqlDataReader sqlDataReader1 = dataAccess1.GetData(sql1);
+                sqlDataReader1.Read();
+                Event @event = new Event((int)sqlDataReader1["ID"], sqlDataReader1["EventName"].ToString(), sqlDataReader1["EventDescription"].ToString(), (byte[])sqlDataReader1["Image"], sqlDataReader1["Priority"].ToString(), sqlDataReader1["ModificationDate"].ToString(), user);
+                Editor editor = new Editor(@event, user, this, updateTextBox.Text);
+                dataAccess1.CloseConnection();
+                editor.Show();
+                this.Hide();
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            string sqlD = "DELETE FROM Events WHERE EventName='" + updateTextBox.Text+"'";
+            try
+            {
+                DataAccess dataAccess = new DataAccess();
+                int resD = dataAccess.ExecuteQuery(sqlD);
+                if(resD>0)
+                {
+                    MessageBox.Show("Successfuly Deleted!");
+                }
+                else
+                {
+                    MessageBox.Show("Unsuccess! Please try again...");
+                }
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
     }
 }

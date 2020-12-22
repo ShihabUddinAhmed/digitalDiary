@@ -39,6 +39,8 @@ namespace digitalDiary
             this.lessDataGridView = new System.Windows.Forms.DataGridView();
             this.updateEventButton = new System.Windows.Forms.Button();
             this.eventLebel = new System.Windows.Forms.Label();
+            this.updateTextBox = new System.Windows.Forms.TextBox();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.highDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moderateDataGridView)).BeginInit();
@@ -110,6 +112,7 @@ namespace digitalDiary
             this.highDataGridView.RowTemplate.Height = 24;
             this.highDataGridView.Size = new System.Drawing.Size(432, 128);
             this.highDataGridView.TabIndex = 4;
+            this.highDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.highDataGridView_CellContentClick);
             // 
             // moderateDataGridView
             // 
@@ -120,6 +123,7 @@ namespace digitalDiary
             this.moderateDataGridView.RowTemplate.Height = 24;
             this.moderateDataGridView.Size = new System.Drawing.Size(432, 126);
             this.moderateDataGridView.TabIndex = 5;
+            this.moderateDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.moderateDataGridView_CellContentClick);
             // 
             // lessDataGridView
             // 
@@ -130,6 +134,7 @@ namespace digitalDiary
             this.lessDataGridView.RowTemplate.Height = 24;
             this.lessDataGridView.Size = new System.Drawing.Size(432, 110);
             this.lessDataGridView.TabIndex = 6;
+            this.lessDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lessDataGridView_CellContentClick);
             // 
             // updateEventButton
             // 
@@ -142,6 +147,7 @@ namespace digitalDiary
             this.updateEventButton.TabIndex = 7;
             this.updateEventButton.Text = "Update Event";
             this.updateEventButton.UseVisualStyleBackColor = false;
+            this.updateEventButton.Click += new System.EventHandler(this.updateEventButton_Click);
             // 
             // eventLebel
             // 
@@ -153,11 +159,34 @@ namespace digitalDiary
             this.eventLebel.TabIndex = 8;
             this.eventLebel.Text = "Events :";
             // 
+            // updateTextBox
+            // 
+            this.updateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateTextBox.Location = new System.Drawing.Point(692, 238);
+            this.updateTextBox.Name = "updateTextBox";
+            this.updateTextBox.Size = new System.Drawing.Size(257, 30);
+            this.updateTextBox.TabIndex = 9;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.ForeColor = System.Drawing.Color.White;
+            this.deleteButton.Location = new System.Drawing.Point(692, 334);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(257, 54);
+            this.deleteButton.TabIndex = 10;
+            this.deleteButton.Text = "Delete Event";
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 553);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.updateTextBox);
             this.Controls.Add(this.eventLebel);
             this.Controls.Add(this.updateEventButton);
             this.Controls.Add(this.lessDataGridView);
@@ -191,5 +220,7 @@ namespace digitalDiary
         private System.Windows.Forms.DataGridView lessDataGridView;
         private System.Windows.Forms.Button updateEventButton;
         private System.Windows.Forms.Label eventLebel;
+        private System.Windows.Forms.TextBox updateTextBox;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

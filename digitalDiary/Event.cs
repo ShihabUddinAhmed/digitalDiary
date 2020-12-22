@@ -27,7 +27,7 @@ namespace digitalDiary
             this.user = user;
         }
 
-        public int Id { get => id; }
+        public int Id { get => id; set => id = value; }
         public string EventName { get => eventName; set => eventName = value; }
         public string EventDescription { get => eventDescription; set => eventDescription = value; }
         public byte[] Image { get => image; set => image = value; }
