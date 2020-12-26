@@ -36,6 +36,8 @@ namespace digitalDiary
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.userNameLebel = new System.Windows.Forms.Label();
             this.userNameTextBox = new System.Windows.Forms.TextBox();
+            this.digitalDiaryLebel = new System.Windows.Forms.Label();
+            this.smallcommentLebel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loginButton
@@ -92,6 +94,7 @@ namespace digitalDiary
             this.passwordTextBox.PasswordChar = '⚫';
             this.passwordTextBox.Size = new System.Drawing.Size(386, 22);
             this.passwordTextBox.TabIndex = 4;
+            this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTextBox_KeyDown);
             // 
             // userNameLebel
             // 
@@ -109,12 +112,36 @@ namespace digitalDiary
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(386, 22);
             this.userNameTextBox.TabIndex = 6;
+            this.userNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.userNameTextBox_KeyDown);
+            // 
+            // digitalDiaryLebel
+            // 
+            this.digitalDiaryLebel.AutoSize = true;
+            this.digitalDiaryLebel.Font = new System.Drawing.Font("Stencil", 67.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.digitalDiaryLebel.Location = new System.Drawing.Point(37, 36);
+            this.digitalDiaryLebel.Name = "digitalDiaryLebel";
+            this.digitalDiaryLebel.Size = new System.Drawing.Size(872, 136);
+            this.digitalDiaryLebel.TabIndex = 7;
+            this.digitalDiaryLebel.Text = "Digital Diary";
+            // 
+            // smallcommentLebel
+            // 
+            this.smallcommentLebel.AutoSize = true;
+            this.smallcommentLebel.Font = new System.Drawing.Font("Stencil", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.smallcommentLebel.Location = new System.Drawing.Point(573, 152);
+            this.smallcommentLebel.Name = "smallcommentLebel";
+            this.smallcommentLebel.Size = new System.Drawing.Size(336, 20);
+            this.smallcommentLebel.TabIndex = 8;
+            this.smallcommentLebel.Text = "A digital solution of Diary Writing.";
+            this.smallcommentLebel.Click += new System.EventHandler(this.smallcommentLebel_Click);
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 553);
+            this.Controls.Add(this.smallcommentLebel);
+            this.Controls.Add(this.digitalDiaryLebel);
             this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.userNameLebel);
             this.Controls.Add(this.passwordTextBox);
@@ -140,6 +167,8 @@ namespace digitalDiary
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label userNameLebel;
         private System.Windows.Forms.TextBox userNameTextBox;
+        private System.Windows.Forms.Label digitalDiaryLebel;
+        private System.Windows.Forms.Label smallcommentLebel;
     }
 }
 

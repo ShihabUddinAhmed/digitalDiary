@@ -193,5 +193,10 @@ namespace digitalDiary
                 MessageBox.Show(exc.Message);
             }
         }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            refreshButton.Click += this.DashBoard_Load;
+        }
     }
 }

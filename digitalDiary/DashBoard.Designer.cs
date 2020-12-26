@@ -41,6 +41,7 @@ namespace digitalDiary
             this.eventLebel = new System.Windows.Forms.Label();
             this.updateTextBox = new System.Windows.Forms.TextBox();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.highDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moderateDataGridView)).BeginInit();
@@ -180,11 +181,25 @@ namespace digitalDiary
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
+            // refreshButton
+            // 
+            this.refreshButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshButton.ForeColor = System.Drawing.Color.White;
+            this.refreshButton.Location = new System.Drawing.Point(692, 164);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(257, 54);
+            this.refreshButton.TabIndex = 11;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = false;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 553);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.updateTextBox);
             this.Controls.Add(this.eventLebel);
@@ -222,5 +237,6 @@ namespace digitalDiary
         private System.Windows.Forms.Label eventLebel;
         private System.Windows.Forms.TextBox updateTextBox;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button refreshButton;
     }
 }

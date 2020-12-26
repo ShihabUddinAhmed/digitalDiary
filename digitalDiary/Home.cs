@@ -16,6 +16,8 @@ namespace digitalDiary
         public Home()
         {
             InitializeComponent();
+            this.ActiveControl = userNameTextBox;
+            userNameTextBox.Focus();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -54,6 +56,8 @@ namespace digitalDiary
             {
                 MessageBox.Show("Fields Cannot be Empty!");
             }
+            userNameTextBox.Text = string.Empty;
+            passwordTextBox.Text = string.Empty;
         }
 
         private void signUpButton_Click(object sender, EventArgs e)
@@ -71,6 +75,27 @@ namespace digitalDiary
         private void signUpLebel_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void userNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                passwordTextBox.Focus();
+            }
+        }
+
+        private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginButton.PerformClick();
+            }
+        }
+
+        private void smallcommentLebel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
