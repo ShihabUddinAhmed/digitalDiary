@@ -58,9 +58,9 @@ namespace digitalDiary
             this.signUpButton.BackColor = System.Drawing.SystemColors.Highlight;
             this.signUpButton.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signUpButton.ForeColor = System.Drawing.Color.White;
-            this.signUpButton.Location = new System.Drawing.Point(554, 500);
+            this.signUpButton.Location = new System.Drawing.Point(538, 496);
             this.signUpButton.Name = "signUpButton";
-            this.signUpButton.Size = new System.Drawing.Size(140, 32);
+            this.signUpButton.Size = new System.Drawing.Size(203, 41);
             this.signUpButton.TabIndex = 1;
             this.signUpButton.Text = "Sign Up";
             this.signUpButton.UseVisualStyleBackColor = false;
@@ -70,7 +70,7 @@ namespace digitalDiary
             // 
             this.signUpLebel.AutoSize = true;
             this.signUpLebel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signUpLebel.Location = new System.Drawing.Point(248, 504);
+            this.signUpLebel.Location = new System.Drawing.Point(217, 504);
             this.signUpLebel.Name = "signUpLebel";
             this.signUpLebel.Size = new System.Drawing.Size(300, 24);
             this.signUpLebel.TabIndex = 2;
@@ -118,7 +118,7 @@ namespace digitalDiary
             // 
             this.digitalDiaryLebel.AutoSize = true;
             this.digitalDiaryLebel.Font = new System.Drawing.Font("Stencil", 67.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.digitalDiaryLebel.Location = new System.Drawing.Point(37, 36);
+            this.digitalDiaryLebel.Location = new System.Drawing.Point(23, 36);
             this.digitalDiaryLebel.Name = "digitalDiaryLebel";
             this.digitalDiaryLebel.Size = new System.Drawing.Size(872, 136);
             this.digitalDiaryLebel.TabIndex = 7;

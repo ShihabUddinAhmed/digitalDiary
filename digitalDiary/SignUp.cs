@@ -50,60 +50,68 @@ namespace digitalDiary
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
-            string sql = "";
-            if (nameTextBox.Text != "" && userNameTextBox.Text != "" && passwordTextBox.Text != "" && confirmPasswordTextBox.Text != "" &&
-               emailTextBox.Text != "" && (maleRadioButton.Checked || femaleRadioButton.Checked ||
-               otherRadioButton.Checked) && bloodGroupComboBox.Text != "" && agreementCheckBox.Checked)
+            try
             {
-                if (passwordTextBox.Text == confirmPasswordTextBox.Text)
+                string sql = "";
+                if (nameTextBox.Text != "" && userNameTextBox.Text != "" && passwordTextBox.Text != "" && confirmPasswordTextBox.Text != "" &&
+                   emailTextBox.Text != "" && (maleRadioButton.Checked || femaleRadioButton.Checked ||
+                   otherRadioButton.Checked) && bloodGroupComboBox.Text != "" && agreementCheckBox.Checked)
                 {
-                    string email = emailTextBox.Text;
-                    string word = ".com";
-                    if (email.Contains(word))
+                    if (passwordTextBox.Text == confirmPasswordTextBox.Text)
                     {
-                        if (maleRadioButton.Checked)
+                        string email = emailTextBox.Text;
+                        string word = ".com";
+                        if (email.Contains(word))
                         {
-                            sql = "INSERT INTO Users(Name,UserName,Email,DOB,Password,Gender,BloodGroup) VALUES('" + nameTextBox.Text + "','" + userNameTextBox.Text + "','" + emailTextBox.Text + "','" + dOBDateTimePicker.Text + "','" + passwordTextBox.Text + "','" + maleRadioButton.Text + "','" + bloodGroupComboBox.Text + "')";
-                            
-                        }
-                        else if (femaleRadioButton.Checked)
-                        {
-                            sql = "INSERT INTO Users(Name,UserName,Email,DOB,Password,Gender,BloodGroup) VALUES('" + nameTextBox.Text + "','" + userNameTextBox.Text + "','" + emailTextBox.Text + "','" + dOBDateTimePicker.Text + "','" + passwordTextBox.Text + "','" + femaleRadioButton.Text + "','" + bloodGroupComboBox.Text + "')";
+                            if (maleRadioButton.Checked)
+                            {
+                                sql = "INSERT INTO Users(Name,UserName,Email,DOB,Password,Gender,BloodGroup) VALUES('" + nameTextBox.Text + "','" + userNameTextBox.Text + "','" + emailTextBox.Text + "','" + dOBDateTimePicker.Text + "','" + passwordTextBox.Text + "','" + maleRadioButton.Text + "','" + bloodGroupComboBox.Text + "')";
 
+                            }
+                            else if (femaleRadioButton.Checked)
+                            {
+                                sql = "INSERT INTO Users(Name,UserName,Email,DOB,Password,Gender,BloodGroup) VALUES('" + nameTextBox.Text + "','" + userNameTextBox.Text + "','" + emailTextBox.Text + "','" + dOBDateTimePicker.Text + "','" + passwordTextBox.Text + "','" + femaleRadioButton.Text + "','" + bloodGroupComboBox.Text + "')";
+
+                            }
+                            else
+                            {
+                                sql = "INSERT INTO Users(Name,UserName,Email,DOB,Password,Gender,BloodGroup) VALUES('" + nameTextBox.Text + "','" + userNameTextBox.Text + "','" + emailTextBox.Text + "','" + dOBDateTimePicker.Text + "','" + passwordTextBox.Text + "','" + otherRadioButton.Text + "','" + bloodGroupComboBox.Text + "')";
+
+                            }
+                            DataAccess dataaccess = new DataAccess();
+                            int result = dataaccess.ExecuteQuery(sql);
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Registered Successfully...!");
+                                nameTextBox.Text = userNameTextBox.Text = emailTextBox.Text = passwordTextBox.Text = confirmPasswordTextBox.Text = bloodGroupComboBox.Text = string.Empty;
+                                maleRadioButton.Checked = femaleRadioButton.Checked = otherRadioButton.Checked = false;
+                                agreementCheckBox.Checked = false;
+                                backButton.PerformClick();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Unsuccessful operation...");
+                            }
+                            dataaccess.CloseConnection();
                         }
                         else
                         {
-                            sql = "INSERT INTO Users(Name,UserName,Email,DOB,Password,Gender,BloodGroup) VALUES('" + nameTextBox.Text + "','" + userNameTextBox.Text + "','" + emailTextBox.Text + "','" + dOBDateTimePicker.Text + "','" + passwordTextBox.Text + "','" + otherRadioButton.Text + "','" + bloodGroupComboBox.Text + "')";
-
+                            MessageBox.Show("Invalid Email!");
                         }
-                        DataAccess dataaccess = new DataAccess();
-                        int result = dataaccess.ExecuteQuery(sql);
-                        if (result > 0)
-                        {
-                            MessageBox.Show("Registered Successfully...!");
-                            nameTextBox.Text = userNameTextBox.Text = emailTextBox.Text = passwordTextBox.Text = confirmPasswordTextBox.Text = bloodGroupComboBox.Text = string.Empty;
-                            maleRadioButton.Checked = femaleRadioButton.Checked = otherRadioButton.Checked = false;
-                            agreementCheckBox.Checked = false;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Unsuccessful operation...");
-                        }
-                        dataaccess.CloseConnection();
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Email!");
+                        MessageBox.Show("Enter Password Again!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Enter Password Again!");
+                    MessageBox.Show("Please fill up the form and check the agreement!");
                 }
             }
-            else
+            catch(Exception exception)
             {
-                MessageBox.Show("Please fill up the form and check the agreement!");
+                MessageBox.Show(exception.Message);
             }
         }
     }
